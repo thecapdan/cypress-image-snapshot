@@ -14,6 +14,7 @@ import { MATCH, RECORD } from './constants';
 let snapshotOptions = {};
 let snapshotResult = {};
 let snapshotRunning = false;
+const storeReceivedOnFailure = true;
 const kebabSnap = '-snap.png';
 const dotSnap = '.snap.png';
 const dotDiff = '.diff.png';
@@ -69,9 +70,7 @@ export function matchImageSnapshotPlugin({ path: screenshotPath }) {
   const receivedImageBuffer = fs.readFileSync(screenshotPath);
   fs.removeSync(screenshotPath);
 
-  const { dir: screenshotDir, name } = path.parse(
-    screenshotPath
-  );
+  const { dir: screenshotDir, name } = path.parse(screenshotPath);
 
   // remove the cypress v5+ native retries suffix from the file name
   const snapshotIdentifier = name.replace(/ \(attempt [0-9]+\)/, '');
@@ -102,6 +101,7 @@ export function matchImageSnapshotPlugin({ path: screenshotPath }) {
   snapshotResult = diffImageToSnapshot({
     snapshotsDir,
     diffDir,
+    storeReceivedOnFailure: storeReceivedOnFailure,
     receivedImageBuffer,
     snapshotIdentifier,
     failureThreshold,
