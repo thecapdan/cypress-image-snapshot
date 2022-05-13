@@ -102,6 +102,7 @@ export function matchImageSnapshotPlugin({ path: screenshotPath }) {
     snapshotsDir,
     diffDir,
     storeReceivedOnFailure: storeReceivedOnFailure,
+    receivedDir: snapshotsDir,
     receivedImageBuffer,
     snapshotIdentifier,
     failureThreshold,
