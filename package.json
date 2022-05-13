@@ -1,8 +1,8 @@
 {
-  "name": "cypress-image-snapshot",
-  "version": "4.0.1",
+  "name": "@thecapdan/cypress-image-snapshot",
+  "version": "4.1.1",
   "description": "Cypress bindings for jest-image-snapshot.",
-  "repository": "https://github.com/palmerhq/cypress-image-snapshot",
+  "repository": "https://github.com/thecapdan/cypress-image-snapshot",
   "author": "Jack Cross <jack@palmer.net>",
   "license": "MIT",
   "files": [
