@@ -57,6 +57,7 @@ export function matchImageSnapshotCommand(defaultOptions) {
             if (failOnSnapshotDiff) {
               throw new Error(message);
             } else {
+              registerSnapshotDiff(name, message);
               Cypress.log({ message });
             }
           }
@@ -78,4 +79,10 @@ export function addMatchImageSnapshotCommand(
     },
     matchImageSnapshotCommand(options)
   );
+}
+
+function registerSnapshotDiff(name, message) {
+  let snapshotDiffs = Cypress.env('snapshotDiffs') || {};
+  snapshotDiffs[name] = message;
+  Cypress.env('snapshotDiffs', snapshotDiffs);
 }
