@@ -1,5 +1,9 @@
 # cypress-image-snapshot
 
+## 4.2.1
+
+- Updating peer dep to support versions of cypress beyond 4.5.
+
 ## 4.2.0
 
 - Adding support to access details of snapshot diff failures even when using `failOnSnapshotDiff=false`. Details of diff failures can now be accessed from an object stored in `Cypress.env("snapshotDiffs")`, diff details are keyed by the name of the snapshot image.
